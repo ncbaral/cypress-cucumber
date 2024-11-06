@@ -1,0 +1,32 @@
+{
+  "name": "cypress-cucumber-ts",
+  "version": "1.0.0",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:smoke": "CYPRESS_NO_COMMAND_LOG=1 cypress run --browser=chrome -e TAGS='@smoke",
+    "cy:all": "CYPRESS_NO_COMMAND_LOG=1 cypress run --browser=chrome -e TAGS='not @live"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "cypress": "^13.15.1",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "ts-loader": "^9.5.1"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "latest",
+    "@cypress/browserify-preprocessor": "latest",
+    "@types/browserify": "latest",
+    "cypress": "latest",
+    "typescript": "latest"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "stepDefinitions": "cypress/step_definitions/**/*.{js,ts}",
+    "filterSpecs": true,
+    "omitFiltered": true
+  }
+}
