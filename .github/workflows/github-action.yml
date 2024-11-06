@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-22.04
     name: Run Cypress tests
     steps:
-      - name: Checkout
+      - name: Checkout codebase
         uses: actions/checkout@v4
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
@@ -13,8 +13,9 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
-      - uses: actions/upload-artifact@v4
+      - name: upload test results
+        uses: actions/upload-artifact@v4
         with:
-          name: Artifacts
+          name: Test results artifact
           path: test-output
           if-no-files-found: ignore
